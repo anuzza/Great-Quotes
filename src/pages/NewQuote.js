@@ -1,10 +1,14 @@
 import QuoteForm from "../components/quotes/QuoteForm";
+import { useHistory } from "react-router-dom";
 
 const NewQuote = ()=>{
-    const addQuoteHandler = quoteData =>{
+    const history = useHistory();
+    const addQuoteHandler = (quoteData) =>{
      console.log(quoteData);   
-    }
-    return (<QuoteForm onAdd={addQuoteHandler}/>);
+     history.push('/quotes');
+    };
+
+    return (<QuoteForm onAddQuote={addQuoteHandler}/>);
 }
 
 export default NewQuote;
